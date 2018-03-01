@@ -54,3 +54,7 @@ If You cannot see the __Custom Fields__ section, then click on __Display Options
 ## Thanks
 
 Thanks to anyone that takes the time to test this plugin and provides Me any feedback.
+
+## Contact
+
+You can get in touch through [My Website](https://nicomv.com/).
