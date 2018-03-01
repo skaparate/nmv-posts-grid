@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Posts Grid\n"
+"POT-Creation-Date: 2018-02-28 22:39-0300\n"
+"PO-Revision-Date: 2018-02-28 22:40-0300\n"
+"Last-Translator: \n"
+"Language-Team: info@nicomv.com <info@nicomv.com>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: templates/gallery-template.php:10
+msgid "Volver"
+msgstr "Back"
+
+#: templates/post-grid.php:16 templates/post-grid.php:19
+msgid "Ver más"
+msgstr "More"
