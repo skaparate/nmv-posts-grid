@@ -50,6 +50,7 @@ If You cannot see the __Custom Fields__ section, then click on __Display Options
 * [WordPress](https://wordpress.org/), of course.
 * [Wordpress Plugin Boilerplate](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate).
 * [PHP](https://php.net/), what would we be without it...
+* [Slick JS](https://kenwheeler.github.io/slick/).
 
 ## Thanks
 
