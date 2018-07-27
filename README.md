@@ -36,7 +36,7 @@ The following custom fields are recognized:
 
 To add these values, go to Your dashboard -> Posts -> Select the post You want to show. Under the __Custom Fields__ section, click on Add New Value and enter the name and value You want.
 
-If You cannot see the __Custom Fields__ section, then click on __Display Options__  (top left corner) and check the related option.
+If You cannot see the __Custom Fields__ section, then click on __Display Options__  (top right corner) and check the related option.
 
 ## Install
 
