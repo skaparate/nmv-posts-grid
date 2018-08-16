@@ -24,6 +24,7 @@ The shortcode includes the following options:
   * nmv\_pg\_date: orders the posts by a valid date (format: YYYY/MM/DD).
   * nmv\_pg\_index: a numeric value.
 * is\_gallery: a value set to true or false. If true, then each of the posts is expected to contain only images, without anything else (apart from the custom fields values). In this case, the posts are shown just as before, but instead of opening the post page, an image gallery overlay is shown.
+* hide\_show\_more: hides the "show more" link at the bottom of each item.
 
 #### Supported Custom Fields
 

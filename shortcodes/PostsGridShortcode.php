@@ -30,10 +30,11 @@ class PostsGridShortcode
             'container_class'	   => '',
             'display_order'      => 'ASC',
             'order_by'           => '',
-            'is_gallery'         => 'false'
+            'is_gallery'         => 'false',
+            'hide_show_more'     => 'true'
         );
         $this->orderByMeta = array(
-            'nmv_pg_date', 'nmv_pg_index'
+            'nmv_pg_date', 'nmv_pg_index', 'title'
         );
     }
 
@@ -62,8 +63,9 @@ class PostsGridShortcode
         $item_title = $post->post_title;
         $item_img_url = wp_get_attachment_url(get_post_thumbnail_id($item_id));
         $item_subtitle = $this->getSubtitle($custom_fields);
+        $hide_show_more = $data['hide_show_more'] === 'true';
         $has_gallery = $this->hasGallery($custom_fields);
-        $is_gallery = $data['is_gallery'];
+        $is_gallery = $this->isGallery($data);
         include NMV_POSTSGRID . 'templates/post-grid.php';
     }
 
@@ -74,6 +76,9 @@ class PostsGridShortcode
             return $result;
         }
         $val = $sc_data['order_by'];
+        if($val === 'title') {
+            return array('order_by' => $val);
+        }
         if ($val !== 'nmv_pg_index' && $val !== 'nmv_post_date') {
             $result['order_by'] = $val;
         } else {
@@ -159,6 +164,15 @@ class PostsGridShortcode
         }
         return $custom_fields['nmv_pg_nogallery'][0] === 'false' ||
       $custom_fields['nmv_pg_nogallery'][0] === '0';
+    }
+    
+    private function isGallery($data) {
+      if(!isset($data['is_gallery'])) {
+        return false;
+      }
+      return $data['is_gallery'] === 'true' ||
+        $data['is_gallery'] === 'on' ||
+        $data['is_gallery'] === '1';
     }
 
     private function getSubtitle($custom_fields)
