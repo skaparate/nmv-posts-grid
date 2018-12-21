@@ -1,6 +1,6 @@
 # Posts Grid (nmv-posts-grid)
 
-[English] (https://github.com/skaparate/nmv-posts-grid/README.md)
+[English](README.md)
 
 Un plugin para wordpress que muestra una lista de posts de una categoría específica.
 

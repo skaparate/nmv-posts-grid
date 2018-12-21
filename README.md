@@ -1,6 +1,6 @@
 # Posts Grid (nmv-posts-grid)
 
-[Español] (https://github.com/skaparate/nmv-posts-grid/README.es.md)
+[Español](README.es.md)
 
 A WordPress plugin that displays a lists of posts from a specific category.
 
