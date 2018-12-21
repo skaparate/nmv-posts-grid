@@ -1,6 +1,15 @@
 # Posts Grid (nmv-posts-grid)
 
+[Español] (https://github.com/skaparate/nmv-posts-grid/README.es.md)
+
 A WordPress plugin that displays a lists of posts from a specific category.
+
+## Install
+
+1. Download the plugin to Your computer.
+2. Upload and unzip the plugin into Your WordPress plugins directory.
+3. Go to the Dashboard -> Plugins and activate it.
+4. Use it.
 
 ## Usage
 
@@ -38,13 +47,6 @@ The following custom fields are recognized:
 To add these values, go to Your dashboard -> Posts -> Select the post You want to show. Under the __Custom Fields__ section, click on Add New Value and enter the name and value You want.
 
 If You cannot see the __Custom Fields__ section, then click on __Display Options__  (top left corner) and check the related option.
-
-## Install
-
-1. Download the plugin to Your computer.
-2. Upload and unzip the plugin into Your WordPress plugins directory.
-3. Go to the Dashboard -> Plugins and activate it.
-4. Use it.
 
 ## Credits
 
