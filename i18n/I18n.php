@@ -1,6 +1,6 @@
 <?php
 
-namespace Nicomv\Posts\Grid\I18n;
+namespace Nicomv\PostsGrid\I18n;
 
 /**
  * Define the internationalization functionality.
@@ -9,8 +9,8 @@ namespace Nicomv\Posts\Grid\I18n;
  * so that it is ready for translation.
  *
  * @since      0.0.1
- * @package    Nicomv\Posts\Grid\
- * @subpackage Nicomv\Posts\Grid\I18n
+ * @package    Nicomv\PostsGrid\
+ * @subpackage Nicomv\PostsGrid\I18n
  * @author     skaparate <info@nicomv.com>
  */
 class I18n {

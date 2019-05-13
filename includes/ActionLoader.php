@@ -1,6 +1,6 @@
 <?php
 
-namespace Nicomv\Posts\Grid\Includes;
+namespace Nicomv\PostsGrid\Includes;
 
 /**
  * Register all actions and filters for the plugin.
@@ -9,8 +9,8 @@ namespace Nicomv\Posts\Grid\Includes;
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package 	 Nicomv\Posts\Grid
- * @subpackage Nicomv\Posts\Grid\Includes
+ * @package 	 Nicomv\PostsGrid
+ * @subpackage Nicomv\PostsGrid\Includes
  * @author     Your Name <email@example.com>
  */
 class ActionLoader

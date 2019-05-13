@@ -1,6 +1,6 @@
 <?php
 
-namespace Nicomv\Posts\Grid\Includes;
+namespace Nicomv\PostsGrid\Includes;
 
 class AutoLoader
 {

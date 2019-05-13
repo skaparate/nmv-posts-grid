@@ -50,10 +50,11 @@ Si no puedes ver la sección __Campos Personalizados__ haz clic sobre __Opciones
 
 ## Créditos
 
-* [WordPress](https://wordpress.org/), of course.
-* [Wordpress Plugin Boilerplate](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate).
-* [PHP](https://php.net/), what would we be without it...
-* [Slick JS](https://kenwheeler.github.io/slick/).
+* [WordPress](https://wordpress.org/).
+* [Wordpress Plugin Boilerplate](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate): la base de este plugin.
+* [PHP](https://php.net/), qué sería de nosotros sin él.
+* [Slick JS](https://kenwheeler.github.io/slick/): el plugin utilizado para crear la galería.
+* [Masonry JS](https://masonry.desandro.com): utilizado para mostrar las publicaciones por defecto.
 
 ## Agradecimientos
 

@@ -1,4 +1,4 @@
-<article id="posts-grid-item-<?php echo $item_id; ?>" class="posts-grid-item">
+<article id="posts-grid-item-<?php echo $item_id; ?>" class="<?= $item_class ?>">
     <img class="posts-grid-image" src="<?php echo $item_img_url; ?>" />
     <div class="posts-grid-overlay">
       <div class="posts-grid-overlay-wrapper">

@@ -51,9 +51,10 @@ If You cannot see the __Custom Fields__ section, then click on __Display Options
 ## Credits
 
 * [WordPress](https://wordpress.org/), of course.
-* [Wordpress Plugin Boilerplate](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate).
+* [Wordpress Plugin Boilerplate](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate), this plugin base.
 * [PHP](https://php.net/), what would we be without it...
-* [Slick JS](https://kenwheeler.github.io/slick/).
+* [Slick JS](https://kenwheeler.github.io/slick/), when the gallery is active, this is the plugin creating it.
+* [Masonry](https://masonry.desandro.com), used to display the posts.
 
 ## Thanks
 
@@ -62,3 +63,13 @@ Thanks to anyone that takes the time to test this plugin and provides Me any fee
 ## Contact
 
 You can get in touch through [My Website](https://nicomv.com/).
+
+## Changes
+
+### v0.0.3 
+* Added masonry to display the posts.
+* Return an empty div if the shortcode category is empty or not set.
+
+### v0.0.1
+
+* This is the initial plugin.

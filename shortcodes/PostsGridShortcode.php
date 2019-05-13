@@ -1,6 +1,7 @@
 <?php
 
-namespace Nicomv\Posts\Grid\Shortcodes;
+namespace Nicomv\PostsGrid\Shortcodes;
+use Nicomv\PostsGrid\Utils\Logger;
 
 /**
  * Displays a set of posts from a specific category and layout.
@@ -25,14 +26,44 @@ class PostsGridShortcode
     public function __construct()
     {
         $this->defaultArgs = array(
-            'category'	         => 'Eventos',
+            /**
+             * Required: The category name (not the slug or ID)
+             * that's being shown.
+             */
+            'category'	         => '',
+            /**
+             * Quantity of posts to display.
+             */
             'quantity'	         => 30,
+            /**
+             * The container class.
+             */
             'container_class'	   => '',
+            /**
+             * The order by which the posts are displayed:
+             * ASC = ascending, DESC, descending.
+             */
             'display_order'      => 'ASC',
+            /**
+             * The field by which the posts are
+             * sorted by. See orderByMeta field.
+             */
             'order_by'           => '',
+            /**
+             * If set to true, every post is expected to
+             * contain only images, which will be shown using
+             * slick.
+             */
             'is_gallery'         => 'false',
-            'hide_show_more'     => 'true'
+            /**
+             * Hides the show more link.
+             */
+            'hide_show_more'     => 'true',
         );
+        /**
+         * Supported meta fields by which the posts can be
+         * sorted.
+         */
         $this->orderByMeta = array(
             'nmv_pg_date', 'nmv_pg_index', 'title'
         );
@@ -40,11 +71,17 @@ class PostsGridShortcode
 
     public function doShortcode($attrs)
     {
-        ob_start();
         $data = shortcode_atts($this->defaultArgs, $attrs);
+
+        // If there is no category defined, return an empty div.
+        if (!isset($data['category']) || empty($data['category'])) {
+            return '<div class="nmv-posts-grid"></div>';
+        }
         $this->prepareScripts($data);
+        ob_start();
         $result = $this->buildInitialTag($data);
         $posts = get_posts($this->buildQuery($data));
+        $result .= '<div class="posts-grid-item posts-grid-sizer"></div>';
         foreach ($posts as $post) {
             $this->includeTemplate($post, $data);
         }
@@ -66,6 +103,7 @@ class PostsGridShortcode
         $hide_show_more = $data['hide_show_more'] === 'true';
         $has_gallery = $this->hasGallery($custom_fields);
         $is_gallery = $this->isGallery($data);
+        $item_class = 'posts-grid-item grid-item' . $this->getCustomMasonryItemClass($custom_fields);
         include NMV_POSTSGRID . 'templates/post-grid.php';
     }
 
@@ -105,7 +143,6 @@ class PostsGridShortcode
     private function buildQuery($sc_data)
     {
         $order_by = $this->orderBy($sc_data);
-        //print_r( $order_by );
         $cat = get_cat_ID($sc_data['category']);
         $query = array(
             'posts_per_page'    => $sc_data['quantity'],
@@ -147,7 +184,7 @@ class PostsGridShortcode
 
     private function buildInitialTag($sc_data)
     {
-        $r = '<div class="nmv-posts-grid';
+        $r = '<div class="nmv-posts-grid grid';
 
         if (isset($sc_data['container_class']) && $sc_data['container_class'] !== '') {
             $r .= ' ' . trim($sc_data['container_class']);
@@ -182,16 +219,29 @@ class PostsGridShortcode
         }
         return $custom_fields['nmv_pg_caption'][0];
     }
+
+    private function getCustomMasonryItemClass($custom_fields)
+    {
+        if (!isset($custom_fields['nmv_pg_masonry_class'])) {
+            return '';
+        }
+        $r = sanitize_text_field($custom_fields['nmv_pg_masonry_class'][0]);
+        return !empty($r) ? ' ' . $r : '';
+    }
     
     private function prepareScripts($sc_data)
     {
-        if ($sc_data['is_gallery'] === 'true') {
-            add_action('wp_enqueue_scripts', array( $this, 'loadGalleryScripts' ));
+        Logger::log('Preparing scripts');
+        if ($this->isGallery($sc_data)) {
+            Logger::log('Adding gallery plugin');
+            $this->loadGalleryScripts();
         }
+        $this->loadDefaultScripts();
     }
     
-    public function loadGalleryScripts()
+    private function loadGalleryScripts()
     {
+        Logger::log('Loading gallery scripts');
         wp_enqueue_script('nmv-pg-slick');
         wp_enqueue_style('nmv-pg-slick');
         wp_enqueue_style('nmv-pg-slick-theme');
@@ -204,5 +254,11 @@ class PostsGridShortcode
           'nonce'   => wp_create_nonce(NMV_POSTSGRID_NONCE)
         )
       );
+    }
+
+    private function loadDefaultScripts()
+    {
+        Logger::log( 'Loading default scripts' );
+        wp_enqueue_script('nmv-pg-masonry-setup');
     }
 }

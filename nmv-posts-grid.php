@@ -1,5 +1,5 @@
 <?php
-namespace Nicomv\Posts\Grid;
+namespace Nicomv\PostsGrid;
 
 /**
  * Plugin Name:       Posts Grid
@@ -20,13 +20,14 @@ namespace Nicomv\Posts\Grid;
  }
 
 define( 'NMV_POSTSGRID', plugin_dir_path( __FILE__ ) );
-define( 'NMV_POSTSGRID_URL', plugins_url( './', __FILE__ ) );
+define( 'NMV_POSTSGRID_URL', plugins_url( '/', __FILE__ ) );
+// TODO: fix the way in which the nonce is generated for ajax requests
 define( 'NMV_POSTSGRID_NONCE', '89pcvxlg21' );
-define( 'NMV_POSTSGRID_VERSION', '0.0.3' );
+define( 'NMV_POSTSGRID_VERSION', '0.0.4' );
 
 function run() {
   require_once NMV_POSTSGRID . 'includes/Core.php';
-  $core = new \Nicomv\Posts\Grid\Includes\Core;
+  $core = new \Nicomv\PostsGrid\Includes\Core;
   $core->run();
 }
 run();
