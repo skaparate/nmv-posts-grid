@@ -1,6 +1,4 @@
 <?php
-namespace Nicomv\PostsGrid;
-
 /**
  * Plugin Name:       Posts Grid
  * Author:            Nicolas Mancilla <info@nicomv.com>
@@ -13,21 +11,29 @@ namespace Nicomv\PostsGrid;
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       nmv-postsgrid
  * Domain Path:       /languages
+ *
+ * @package nicomv/postsgrid
  */
 
- if ( ! defined( 'ABSPATH') ) {
+namespace Nicomv\PostsGrid;
+
+ if ( ! defined( 'ABSPATH' ) ) {
    exit;
  }
 
 define( 'NMV_POSTSGRID', plugin_dir_path( __FILE__ ) );
 define( 'NMV_POSTSGRID_URL', plugins_url( '/', __FILE__ ) );
-// TODO: fix the way in which the nonce is generated for ajax requests
+// TODO: fix the way in which the nonce is generated for ajax requests.
 define( 'NMV_POSTSGRID_NONCE', '89pcvxlg21' );
 define( 'NMV_POSTSGRID_VERSION', '0.0.4' );
 
-function run() {
-  require_once NMV_POSTSGRID . 'includes/Core.php';
-  $core = new \Nicomv\PostsGrid\Includes\Core;
+/**
+ * Executes the plugin.
+ */
+function nmv_postsgrid_run() {
+  require_once NMV_POSTSGRID . 'includes/class-core.php';
+  $core = \Nicomv\PostsGrid\Includes\Core::get_instance();
   $core->run();
 }
-run();
+
+nmv_postsgrid_run();

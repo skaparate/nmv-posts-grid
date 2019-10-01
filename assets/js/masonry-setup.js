@@ -1,15 +1,17 @@
 (function($) {
-    $(document).ready(function() {
-        let $grid = $('.nmv-posts-grid').masonry({
-            // options
-            itemSelector: '.posts-grid-item',
-            columnWidth: '.posts-grid-sizer',
-            percentPosition: true
-        });
-
-        $grid.imagesLoad().progress(function() {
-            $grid.masonry('layout');
-        });
+  $(document).ready(function() {
+    const grid = document.querySelector('.grid');
+    const masonry = new Masonry(grid, {
+      // options
+      itemSelector: '.grid-item',
+      gutter: 6,
+      fitWidth: true,
+      isFitWidth: true,
     });
-    
+
+    const imgLoad = imagesLoaded(grid);
+    imgLoad.on('progress', function() {
+      masonry.layout();
+    });
+  });
 })(jQuery);
